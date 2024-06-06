@@ -6,7 +6,7 @@ class Fixed {
 
     private :
         int fixedPointStore;
-        static const int fractionnalBitStore = 8;
+        static const int fractionnalBitStore;
 
     public :
 

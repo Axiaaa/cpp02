@@ -1,18 +1,16 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed(int x) {
-    Fixed::
-    setRawBits(x); 
+const int Fixed::fractionnalBitStore = 8;
+
+Fixed::Fixed() {
+    printf << "Default constructor called" << "\n";
+    Fixed::fixedPointStore = 0;
 }
 
 Fixed::~Fixed() {
     printf << "Destructor called" << "\n";
 }
 
-Fixed::Fixed() {
-    printf << "Default constructor called" << "\n";
-    Fixed::fixedPointStore = 0;
-}
 
 Fixed::Fixed(const Fixed& x) {
     printf << "Copy constructor called" << "\n";
