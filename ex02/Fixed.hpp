@@ -53,13 +53,11 @@ class Fixed {
         bool operator==(const Fixed& x);
         bool operator!=(const Fixed& x);
 
-
-
         /*
         ** @brief Returns the minimum value between two fixed point values.
         ** @param const Fixed& x
         ** @param const Fixed& y
-        ** @return bool
+        ** @return const Fixed&
         */
         const static Fixed& min(const Fixed& x, const Fixed& y);
         
@@ -67,7 +65,7 @@ class Fixed {
         ** @brief Returns the minimum value between two fixed point values.
         ** @param Fixed& x
         ** @param Fixed& y
-        ** @return bool
+        ** @return Fixed&
         */
         static Fixed& min(Fixed& x, Fixed& y);
         
@@ -75,7 +73,7 @@ class Fixed {
         ** @brief Returns the maximum value between two fixed point values.
         ** @param const Fixed& x
         ** @param const Fixed& y
-        ** @return bool
+        ** @return const Fixed&
         */
         const static Fixed& max(const Fixed& x, const Fixed& y);
         
@@ -83,7 +81,7 @@ class Fixed {
         ** @brief Returns the maximum value between two fixed point values.
         ** @param Fixed& x  
         ** @param Fixed& y
-        ** @return bool
+        ** @return Fixed&
         */
         static Fixed& max(Fixed& x, Fixed& y);
 

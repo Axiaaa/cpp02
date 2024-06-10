@@ -9,8 +9,8 @@
 class Fixed {
 
     private :
-        int fixedPointStore;
-        static const int fractionnalBitStore;
+        int _fixedPointStore;
+        static const int _fractionnalBitStore;
 
     public :
     

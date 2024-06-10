@@ -1,16 +1,15 @@
 #include "Fixed.hpp"
 
-const int Fixed::fractionnalBitStore = 8;
+const int Fixed::_fractionnalBitStore = 8;
 
 Fixed::Fixed() {
     printf << "Default constructor called" << "\n";
-    Fixed::fixedPointStore = 0;
+    this->_fixedPointStore = 0;
 }
 
 Fixed::~Fixed() {
     printf << "Destructor called" << "\n";
 }
-
 
 Fixed::Fixed(const Fixed& x) {
     printf << "Copy constructor called" << "\n";
@@ -20,16 +19,16 @@ Fixed::Fixed(const Fixed& x) {
 Fixed& Fixed::operator=(const Fixed& x) {
     printf << "Copy assignment operator called" << "\n";
     if (this != &x) {
-        this->fixedPointStore = x.getRawBits();
+        this->_fixedPointStore = x.getRawBits();
     }
     return *this;
 }
 
 int Fixed::getRawBits(void) const {
     printf << "getRawBits member function called" << "\n";
-    return Fixed::fixedPointStore;
+    return this->_fixedPointStore;
 }
 
 void Fixed::setRawBits(int const raw) {
-    Fixed::fixedPointStore = raw;
+    this->_fixedPointStore = raw;
 }

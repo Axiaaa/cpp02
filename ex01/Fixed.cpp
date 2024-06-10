@@ -1,20 +1,20 @@
 #include "Fixed.hpp"
 
-const int Fixed::fractionnalBitStore = 8;
+const int Fixed::_fractionnalBitStore = 8;
 
 Fixed::Fixed() {
     printf << "Default constructor called" << "\n";
-    Fixed::fixedPointStore = 0;
+    Fixed::_fixedPointStore = 0;
 }
 
 Fixed::Fixed(const int n) {
     printf << "Int constructor called" << "\n";
-    Fixed::setRawBits(n << Fixed::fractionnalBitStore);
+    Fixed::setRawBits(n << this->_fractionnalBitStore);
 }
 
 Fixed::Fixed(const float n) {
     printf << "Float constructor called" << "\n";
-    this->fixedPointStore = roundf(n * (1 << this->fractionnalBitStore));
+    this->_fixedPointStore = roundf(n * (1 << this->_fractionnalBitStore));
 }
 
 Fixed::Fixed(const Fixed& x) {
@@ -29,25 +29,25 @@ Fixed::~Fixed() {
 Fixed& Fixed::operator=(const Fixed& x) {
     printf << "Copy assignment operator called" << "\n";
     if (this != &x) {
-        Fixed::fixedPointStore = x.getRawBits();
+        this->_fixedPointStore = x.getRawBits();
     }
     return *this;
 }
 
 float Fixed::toFloat(void) const {
-    return (float)this->fixedPointStore / (1 << this->fractionnalBitStore);
+    return (float)this->_fixedPointStore / (1 << this->_fractionnalBitStore);
 }
 
 int Fixed::toInt(void) const {
-    return this->fixedPointStore >> this->fractionnalBitStore;
+    return this->_fixedPointStore >> this->_fractionnalBitStore;
 }
 
 int Fixed::getRawBits(void) const {
-    return this->fixedPointStore;
+    return this->_fixedPointStore;
 }
 
 void Fixed::setRawBits(const int raw) {
-    this->fixedPointStore = raw;
+    this->_fixedPointStore = raw;
 }
 
 std::ostream &operator<<(std::ostream& os, Fixed const &x) {
